@@ -1,0 +1,35 @@
+name: Backup to Google Drive
+on: 
+  push:
+    branches: [ main ] # Triggers every time you push to the main branch
+  workflow_dispatch: # Allows you to run it manually from the Actions tab
+
+jobs:
+  drive-backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches full history and all hidden files
+
+      - name: Create ZIP Archive
+        run: |
+          # Creates a zip file named with the current date and time
+          TIMESTAMP=$(date +'%Y-%m-%d_%H-%M')
+          ZIP_NAME="backup-${TIMESTAMP}.zip"
+          
+          # Zips the entire directory including dotfiles (.gitignore, etc.)
+          zip -r $ZIP_NAME .
+          
+          # Saves the filename as an environment variable for the next step
+          echo "FILENAME=${ZIP_NAME}" >> $GITHUB_ENV
+
+      - name: Upload to Google Drive
+        uses: adityak74/google-drive-upload-action@main
+        with:
+          credentials: ${{ secrets.GDRIVE_CREDENTIALS }}
+          filename: ${{ env.FILENAME }}
+          folderId: ${{ secrets.GDRIVE_FOLDER_ID }}
+          name: ${{ env.FILENAME }}
+          overwrite: "false"
