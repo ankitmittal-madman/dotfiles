@@ -1,8 +1,6 @@
 name: Backup to Google Drive
 on: 
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+  workflow_dispatch: # This enables the manual "Run workflow" button
 
 jobs:
   drive-backup:
@@ -17,13 +15,8 @@ jobs:
         run: |
           TIMESTAMP=$(date +'%Y-%m-%d_%H-%M')
           ZIP_NAME="backup-${TIMESTAMP}.zip"
-          
-          # Forces the wildcard (*) to explicitly include all hidden dotfiles and folders
           shopt -s dotglob
-          
-          # Zips everything in the directory, but excludes the zip file itself
           zip -r $ZIP_NAME * -x "$ZIP_NAME"
-          
           echo "FILENAME=${ZIP_NAME}" >> $GITHUB_ENV
 
       - name: Upload to Google Drive via OAuth
