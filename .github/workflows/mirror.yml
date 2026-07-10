@@ -1,7 +1,6 @@
 name: Mirror to GitLab
 on: 
-  push:
-  delete:
+  workflow_dispatch: # This enables the manual "Run workflow" button
 
 jobs:
   gitlab-mirror:
@@ -17,4 +16,4 @@ jobs:
           GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
         run: |
           git remote add gitlab https://oauth2:${GITLAB_TOKEN}@gitlab.com/anki.mittal/dotfiles.git
-          git push gitlab "refs/heads/*:refs/heads/*" "refs/tags/*:refs/tags/*" --force
+          git push gitlab --mirror
