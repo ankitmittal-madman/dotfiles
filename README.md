@@ -1,2 +1,2 @@
 # dotfiles
-Global Claude Skills for APVerse
+Global Claude Skills for ankitmittal-madman
