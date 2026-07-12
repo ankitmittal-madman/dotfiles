@@ -23,6 +23,19 @@ one, based on a paraphrased description rather than real evidence.
 This skill exists to make that failure mode structurally harder to fall
 into. Every step below exists because skipping it is exactly how a
 confident-but-wrong fix gets shipped.
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 
 ## Trigger
 
