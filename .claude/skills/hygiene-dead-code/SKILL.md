@@ -15,6 +15,19 @@ description: >
 Finds dead code and ALWAYS shows a written report before removing anything —
 even items it's confident are safe to delete.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 Activates ONLY on:
