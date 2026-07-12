@@ -19,6 +19,19 @@ Some projects maintain a separate test harness that re-implements core logic
 implementation. This is powerful for testing but creates a real risk: the
 mirror drifts from the real thing silently. This skill catches that drift.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 Activates ONLY on:
