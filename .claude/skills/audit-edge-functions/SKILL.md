@@ -38,6 +38,10 @@ This skill activates ONLY when the developer runs:
 It does not run automatically. Modifying error handling across every backend
 function is consequential — this is always a deliberate action.
 
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
+  
 ---
 
 ## Step 0 — Self-install check (run once per repo)
