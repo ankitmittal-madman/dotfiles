@@ -43,6 +43,11 @@ It must never override:
 - Project Workflow (APDF)
 
 If the project already defines an approach, the project takes precedence.
+
+## Activation
+- Activation Type: Automatic
+- Recommended Phase: Every Session
+  
 ---
 
 ## Step 0 — Self-install check (run once per repo, at session start)
