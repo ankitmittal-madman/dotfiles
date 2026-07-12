@@ -32,6 +32,18 @@ session before ending your turn, the same as an app feature. Don't wait for the 
 notice it's missing and ask. The fact that the change was to the documentation tool
 itself doesn't exempt it from being documented.
 
+## Skill Authority
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ---
 
 ## Step 1 — Find or create the knowledge book
