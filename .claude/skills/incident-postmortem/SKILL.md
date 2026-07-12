@@ -16,6 +16,19 @@ Turns a resolved incident into a structured record the team can learn from
 — without re-litigating the fix (that's already done) and without assigning
 blame to a person (the point is the system, not who touched it).
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 Activates ONLY on:
