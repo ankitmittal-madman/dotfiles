@@ -40,6 +40,10 @@ Activates ONLY on:
 Run this before any deploy the team considers risky — a new migration, a
 major feature, anything touching the production database schema.
 
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
+
 ## Step 0 — Self-install check (run once per repo)
 
 ```bash
