@@ -1,5 +1,29 @@
 # Ankit's Global Claude Code Rules
 
+# Skill Authority & Precedence
+
+Project documentation is always authoritative.
+Order of precedence:
+1. Project Documentation
+2. Founder Decisions
+3. Project Workflow (APDF)
+4. Organization Skills
+5. Claude General Knowledge
+
+Organization skills are reusable engineering standards.
+They must never override project-specific architecture, governance, business rules, or workflow.
+If a project defines a different approach, the project always wins.
+Skills fill gaps only where the project is silent.
+
+# Skill Activation Policy
+
+Automatically Activated
+- session-knowledge-doc
+- coding-standards-enforcer
+- debug-root-cause
+
+All remaining skills remain registered but inactive until explicitly required by the project.
+
 ## Session Start — Do This First (Every Session, No Exceptions)
 
 ### 1 — Self-install knowledge book infrastructure
@@ -161,6 +185,19 @@ Skills with a `references/` folder (currently: `session-knowledge-doc`,
 `install-logging-infrastructure`) need their reference templates fetched
 the same way, preserving the folder structure.
 
+# Skill Lifecycle
+
+Every installed skill follows this lifecycle:
+Install
+↓
+Register
+↓
+Activate
+↓
+Execute
+
+Installing a skill does NOT automatically activate it.
+Skills are activated only when the current project phase requires them.
 ---
 
 ## Audit skills — data, security & infrastructure
