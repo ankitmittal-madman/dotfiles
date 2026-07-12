@@ -28,6 +28,19 @@ If the user asks this skill to "just fix it", decline and explain why:
 compliance fixes need human/legal review of the proposed approach, not just
 the code correctness that other audits can self-verify.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 This skill activates ONLY when the developer runs:
