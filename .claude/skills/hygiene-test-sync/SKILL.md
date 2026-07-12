@@ -38,6 +38,9 @@ Activates ONLY on:
 ```
 /hygiene-testsync
 ```
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
 
 ## Prerequisite — this skill needs a test mirror to exist
 
