@@ -39,6 +39,10 @@ This skill activates ONLY when the developer runs:
 Modifying RLS policies is security-critical and must always be a deliberate,
 reviewed action — never automatic.
 
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
+
 ---
 
 ## Step 0 — Self-install check (run once per repo)
