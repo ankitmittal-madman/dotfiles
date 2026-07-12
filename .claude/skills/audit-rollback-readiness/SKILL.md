@@ -17,6 +17,19 @@ pressure: *if this goes wrong in production, how fast can we undo it, and
 does that path actually work?* This audit verifies the rollback path exists
 and is real — it does not perform the deploy itself.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 Activates ONLY on:
