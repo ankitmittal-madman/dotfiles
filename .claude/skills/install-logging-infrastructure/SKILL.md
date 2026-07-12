@@ -36,6 +36,9 @@ Activates ONLY on:
 ```
 /install-logging
 ```
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
 
 ## Step 0 — Self-install check (run once per repo)
 
