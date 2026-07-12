@@ -16,6 +16,19 @@ description: >
 Catches configuration mistakes before "Submit to App Store" — the kind that
 get an app bounced in review or silently break OTA updates after launch.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 This skill activates ONLY when the developer runs:
