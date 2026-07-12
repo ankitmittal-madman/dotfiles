@@ -30,6 +30,19 @@ rather than triggered by a phrase, because a phrase-based trigger would mean
 forgetting to say it once means a whole session's code ships without the
 standard applied.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ---
 
 ## Step 0 — Self-install check (run once per repo, at session start)
