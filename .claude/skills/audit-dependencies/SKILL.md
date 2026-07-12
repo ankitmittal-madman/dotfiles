@@ -16,6 +16,20 @@ A repeatable, on-demand audit any lead developer can run on any project with one
 command. Produces a written report (`dependency-audit.md`) and, on request, applies
 safe fixes automatically.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
+
 ## Trigger
 
 This skill activates ONLY when the developer runs:
