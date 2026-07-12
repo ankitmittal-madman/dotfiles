@@ -20,6 +20,20 @@ side, an optional field that became required, a response shape that changed
 shape without the client being told. This skill finds that drift before a
 user does.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
+
 ## Trigger
 
 Activates ONLY on:
