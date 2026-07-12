@@ -41,6 +41,10 @@ It does not run automatically at session start, and does not run from typed phra
 alone — this is a deliberate, on-demand action because dependency changes are
 consequential and should never happen silently.
 
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
+  
 ---
 
 ## Step 0 — Self-install check (run once per repo)
