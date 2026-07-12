@@ -40,6 +40,10 @@ This is always retrospective — run after an incident is resolved, not during
 active firefighting (during active firefighting, use `/debug-root-cause`
 directly).
 
+## Activation
+- Activation Type: Manual
+- Recommended Phase: Repository, Implementation, QA or/and Production
+
 ## Step 0 — Self-install check (run once per repo)
 
 ```bash
