@@ -46,8 +46,8 @@ It must never override:
 If the project already defines an approach, the project takes precedence.
 
 ## Activation
-Activation Type: Automatic
-Recommended Phase: Every Session
+- Activation Type: Automatic
+- Recommended Phase: Every Session
 
 ---
 
