@@ -16,6 +16,19 @@ A table can have RLS enabled with zero policies, which silently blocks ALL
 access — the app gets empty results with no error. This audit catches that,
 plus the opposite failure (policies too loose, leaking data across users).
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 This skill activates ONLY when the developer runs:
