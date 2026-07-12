@@ -15,6 +15,19 @@ Finds where secrets live, confirms they're stored correctly, and flags any
 hardcoded secret values committed to source — without ever printing the
 actual secret value anywhere, including in this skill's own output.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 Activates ONLY on:
