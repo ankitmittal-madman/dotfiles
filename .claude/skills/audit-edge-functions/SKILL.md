@@ -15,6 +15,19 @@ description: >
 A repeatable, on-demand audit that checks every serverless/edge function against
 a complete error matrix, and fixes gaps without touching business logic.
 
+## Skill Authority
+
+This skill provides reusable engineering practices.
+
+It must never override:
+
+- Project Documentation
+- Architecture
+- Governance
+- Founder Decisions
+- Project Workflow (APDF)
+
+If the project already defines an approach, the project takes precedence.
 ## Trigger
 
 This skill activates ONLY when the developer runs:
