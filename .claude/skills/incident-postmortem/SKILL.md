@@ -50,7 +50,7 @@ directly).
 ls .claude/skills/incident-postmortem/SKILL.md 2>/dev/null && echo "INSTALLED" || echo "MISSING"
 ```
 
-**If MISSING:** fetch from `apverse-labs/dotfiles` →
+**If MISSING:** fetch from `ankitmittal-madman/dotfiles` →
 `.claude/skills/incident-postmortem/SKILL.md` via GitHub MCP, write to the
 same path in this repo, commit and push.
 
