@@ -46,7 +46,7 @@ Activates ONLY on:
 ls .claude/skills/install-logging-infrastructure/SKILL.md 2>/dev/null && echo "INSTALLED" || echo "MISSING"
 ```
 
-**If MISSING:** fetch from `apverse-labs/dotfiles` →
+**If MISSING:** fetch from `ankitmittal-madman/dotfiles` →
 `.claude/skills/install-logging-infrastructure/SKILL.md` via GitHub MCP, and
 also fetch the reference templates (see Reference files at the bottom) into
 `.claude/skills/install-logging-infrastructure/references/`. Commit and push.
