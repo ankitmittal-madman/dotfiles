@@ -47,7 +47,7 @@ Activates ONLY on:
 ls .claude/skills/audit-onboarding-funnel/SKILL.md 2>/dev/null && echo "INSTALLED" || echo "MISSING"
 ```
 
-**If MISSING:** fetch from `apverse-labs/dotfiles` →
+**If MISSING:** fetch from `ankitmittal-madman/dotfiles` →
 `.claude/skills/audit-onboarding-funnel/SKILL.md` via GitHub MCP, write to
 the same path in this repo, commit and push.
 
