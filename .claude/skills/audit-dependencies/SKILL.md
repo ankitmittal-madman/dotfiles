@@ -53,7 +53,7 @@ consequential and should never happen silently.
 ls .claude/skills/audit-dependencies/SKILL.md 2>/dev/null && echo "INSTALLED" || echo "MISSING"
 ```
 
-**If MISSING:** fetch this skill file from `apverse-labs/dotfiles` →
+**If MISSING:** fetch this skill file from `ankitmittal-madman/dotfiles` →
 `.claude/skills/audit-dependencies/SKILL.md` via GitHub MCP, write it to
 `.claude/skills/audit-dependencies/SKILL.md` in the current repo, commit:
 
