@@ -32,7 +32,7 @@ Check if `KNOWLEDGE.html` exists in the project root.
 Check if `.claude/skills/session-knowledge-doc/SKILL.md` exists in this repo.
 
 **If the skill is MISSING:**
-1. Fetch from `apverse-labs/dotfiles` →
+1. Fetch from `ankitmittal-madman/dotfiles` →
    `.claude/skills/session-knowledge-doc/SKILL.md` via GitHub MCP, write to
    the same path in this repo.
 2. Also fetch `.claude/skills/session-knowledge-doc/references/session-block-template.md`
@@ -49,7 +49,7 @@ Check if `.claude/skills/session-knowledge-doc/SKILL.md` exists in this repo.
 
 Check if `.claude/skills/coding-standards-enforcer/SKILL.md` exists in this repo.
 
-**If MISSING:** fetch from `apverse-labs/dotfiles` →
+**If MISSING:** fetch from `ankitmittal-madman/dotfiles` →
 `.claude/skills/coding-standards-enforcer/SKILL.md` via GitHub MCP, write to
 the same path here, commit and push. Then apply its standards (inline
 documentation + structured logging + change log updates) to all code
@@ -68,7 +68,7 @@ pastes an error message — this triggers the `debug-root-cause` skill's
 discipline, not just when `/debug-root-cause` is typed explicitly.
 
 Check `.claude/skills/debug-root-cause/SKILL.md` exists in this repo. If
-missing, fetch from `apverse-labs/dotfiles` →
+missing, fetch from `ankitmittal-madman/dotfiles` →
 `.claude/skills/debug-root-cause/SKILL.md` via GitHub MCP, write here,
 commit and push. Then follow it: never propose a fix based on a paraphrased
 symptom alone — get real evidence first, every time.
@@ -176,7 +176,7 @@ Every skill listed below follows the same install pattern unless otherwise
 noted:
 
 1. Check if `.claude/skills/[skill-name]/SKILL.md` exists in this repo.
-2. If missing, fetch it from `apverse-labs/dotfiles` →
+2. If missing, fetch it from `ankitmittal-madman/dotfiles` →
    `.claude/skills/[skill-name]/SKILL.md` via GitHub MCP, write it into the
    same path in this repo, commit and push.
 3. Read and follow that skill file exactly.
