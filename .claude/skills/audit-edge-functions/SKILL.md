@@ -50,7 +50,7 @@ function is consequential — this is always a deliberate action.
 ls .claude/skills/audit-edge-functions/SKILL.md 2>/dev/null && echo "INSTALLED" || echo "MISSING"
 ```
 
-**If MISSING:** fetch this skill file from `apverse-labs/dotfiles` →
+**If MISSING:** fetch this skill file from `ankitmittal-madman/dotfiles` →
 `.claude/skills/audit-edge-functions/SKILL.md` via GitHub MCP, write it to
 `.claude/skills/audit-edge-functions/SKILL.md` in the current repo, commit:
 
