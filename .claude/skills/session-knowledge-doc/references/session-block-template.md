@@ -1,3 +1,28 @@
+# Session Block Template
+
+Use this exact structure for every session. Replace ALL `{{placeholders}}`.
+Inject above `<!-- SESSIONS_INJECT -->` in KNOWLEDGE.html.
+
+## Sidebar nav item
+Inject above `<!-- NAV_INJECT -->`:
+
+```html
+<div class="nav-item" onclick="showPage('s{{N}}')">
+  <span class="nav-icon">{{EMOJI}}</span> S{{N}} · {{SHORT_TITLE}}
+  <span class="nav-badge">{{DATE_SHORT}}</span>
+</div>
+```
+
+Choose `{{EMOJI}}` to represent what was built:
+- 📦 Setup/scaffold  🔐 Auth  💬 Chat/feed  🔔 Notifications  🗄 Database
+- 🧩 New feature  🛠 Bug fix  ⚙️ Config  🔌 Integration  📊 Analytics
+
+---
+
+## Full session page block
+Inject above `<!-- SESSIONS_INJECT -->`:
+
+```html
 <div id="page-s{{N}}" class="page-content" style="display:none">
 
   <!-- ── Session header ── -->
@@ -205,3 +230,104 @@
   </div><!-- /detail -->
 
 </div><!-- /page-s{{N}} -->
+```
+
+---
+
+## New CSS to add to shell template <style> block
+Add these rules after the existing `.dd-why-a` rule:
+
+```css
+  /* ── Before / After impact bar ── */
+  .impact-bar{display:flex;align-items:stretch;gap:0;margin-bottom:16px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+  .impact-col{flex:1;padding:14px 16px}
+  .impact-before{background:#fff5f5;border-right:1px solid var(--border)}
+  .impact-after{background:var(--green-bg)}
+  .impact-label{font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--text3);margin-bottom:6px}
+  .impact-text{font-size:13px;color:var(--text);line-height:1.6}
+  .impact-arrow{display:flex;align-items:center;padding:0 12px;font-size:18px;color:var(--text3);background:var(--surface2);border-left:1px solid var(--border);border-right:1px solid var(--border)}
+
+  /* ── Files changed strip ── */
+  .files-changed{margin-bottom:16px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+  .files-changed-label{font-size:11px;font-weight:600;color:var(--text3);margin-bottom:8px}
+  .files-changed-list{display:flex;flex-wrap:wrap;gap:6px}
+  .fc-file{display:flex;align-items:center;gap:5px;padding:3px 8px 3px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm)}
+  .fc-path{font-size:11px;font-family:'SF Mono','Fira Code',monospace;color:var(--text2)}
+
+  /* ── Input → Output inside detail drawer ── */
+  .dd-io{display:flex;align-items:stretch;gap:0;margin-top:6px;margin-bottom:4px;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+  .dd-io-col{flex:1;padding:10px 12px}
+  .dd-io-in{background:#f0f4ff}
+  .dd-io-out{background:var(--green-bg)}
+  .dd-io-arrow{display:flex;align-items:center;padding:0 8px;font-size:16px;color:var(--text3);background:var(--surface2);border-left:1px solid var(--border);border-right:1px solid var(--border)}
+  .dd-io-label{font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--text3);margin-bottom:4px}
+  .dd-io-text{font-size:12px;color:var(--text2);line-height:1.5}
+```
+
+---
+
+## Architecture map node additions
+Inject into the correct layer section:
+
+```html
+<div class="arch-node {{is-new OR is-mod OR blank}}">
+  <div class="arch-node-name {{plain if not a filename}}">{{NAME}}</div>
+  <div class="arch-node-desc">{{Short desc}} · S{{N}}</div>
+</div>
+```
+
+---
+
+## Timeline row
+Inject above `<!-- TIMELINE_INJECT -->`:
+
+```html
+<div class="timeline-row">
+  <div class="tl-date">{{DATE}}</div>
+  <div class="tl-spine"><div class="tl-dot" style="background:{{DOT_COLOR}}"></div></div>
+  <div class="tl-content">
+    <span class="tl-badge" style="background:{{BADGE_BG}};color:{{BADGE_TEXT}}">S{{N}}</span>
+    <div class="tl-title">{{SESSION_TITLE}}</div>
+    <div class="tl-chips">
+      {{REPEAT: <span class="tl-chip" onclick="showPage('s{{N}}')">{{CHIP_LABEL}}</span> }}
+    </div>
+    <div class="tl-note">{{ONE_LINE_ACHIEVEMENT_AND_WHATS_NEXT}}</div>
+  </div>
+</div>
+```
+
+Session colour palette (use in order, cycling if needed):
+- S1: dot `#1a56db` badge `#eff4ff` / `#1a56db`
+- S2: dot `#0e7a5a` badge `#e8f8f2` / `#0e7a5a`
+- S3: dot `#5145b8` badge `#f0effe` / `#5145b8`
+- S4: dot `#92500a` badge `#fef8ec` / `#92500a`
+- S5: dot `#166534` badge `#f0fdf4` / `#166534`
+- S6: dot `#9a3412` badge `#fff7ed` / `#9a3412`
+- S7+: cycle from S1 colours
+
+---
+
+## Files register rows
+Inject above `<!-- FILES_INJECT -->`:
+
+```html
+<tr>
+  <td class="fr-file {{mono}}">{{FILE_PATH}}</td>
+  <td><span class="tag {{TAG_CLASS}}">{{TAG}}</span></td>
+  <td class="fr-session">S{{N}}</td>
+  <td class="fr-desc">{{ONE_LINE_PLAIN_DESCRIPTION}}</td>
+</tr>
+```
+
+---
+
+## Decisions log items
+Inject above `<!-- DECISIONS_INJECT -->`:
+
+```html
+<div class="decision-item">
+  <div class="decision-q">{{QUESTION_THAT_CAME_UP}}</div>
+  <div class="decision-a">{{ANSWER_AND_REASONING}}</div>
+  <div class="decision-meta">S{{N}} · {{DATE_SHORT}}</div>
+</div>
+```
