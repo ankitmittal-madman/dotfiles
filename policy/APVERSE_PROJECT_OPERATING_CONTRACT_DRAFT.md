@@ -1,81 +1,89 @@
-# APVerse Project Operating Contract (Draft)
+# APVerse Engineering Operating Contract (Draft)
 
-**Status:** Phase 1 draft for review  
-**Purpose:** Give every APVerse project a clear, repeatable way to move from a product problem to a tested, reviewable release. A non-technical AI PM should be able to follow the workflow without day-to-day technical coaching.
+**Status:** Draft for co-founder review  
+**Policy owner:** Ankit  
+**Review cadence:** Weekly  
+**Scope:** Engineering quality standards for every APVerse project, including Foofoo and Parent Plus. Product discovery and general product documentation are governed separately. Engineering documentation needed to build, test, operate, and maintain software remains in scope.
 
-## 1. Recommendation: build the bootstrap contract first
+## Why this contract comes first
 
-Start with the shared project contract and bootstrap flow. It defines the common language, stage gates, authority rules, and safety boundaries that later checks and automated corrections must follow. Adding more isolated audit skills before this exists would expand the toolkit without making it consistently adoptable or automatically triggered.
+Automation needs one shared definition of engineering quality. This contract gives project setup, stage checks, findings, and proposed fixes the same rules. Without it, separate AI instructions can make conflicting assumptions.
 
-## 2. Desired operating flow
+## Intended workflow
 
-**PM explains the user problem and desired outcome → assistant asks a guided intake → project manifest records the agreed context → stage gate selects relevant checks → checks run and show evidence → assistant explains failures in plain English → safe fixes are proposed on a branch/PR → a human approves product, security, legal, data, and release decisions.**
+**PM describes the agreed product need → guided setup records the project’s technical context → the system identifies the engineering stage → relevant checks run and show evidence → the AI explains findings and may propose a bounded fix → a human reviews high-impact decisions.**
 
-The workflow should explain technical terms when they first matter, show the user what it inspected, and distinguish verified facts from assumptions. It must not claim a check passed when it did not run.
+The AI should explain technical terms in plain language, show what it inspected, and label checks that did not run as **NOT RUN**. A non-technical PM should not need ongoing technical coaching. One-time organization administrator setup may be needed for permissions, approved integrations, and protected-branch rules. This definition is awaiting Ankit’s confirmation.
 
-## 3. Policy principles
+## Standards and approval table
 
-1. Project intent, approved business rules, and project architecture remain authoritative for that project. APVerse standards fill gaps; they do not silently rewrite product decisions.
-2. The PM provides the product context and approves product trade-offs. The system should translate that context into engineering work, acceptance criteria, and evidence.
-3. Every stage has an entry condition, required evidence, quality checks, exit condition, and named decision owner.
-4. Checks are selected from declared project context and changed files. Stack and stage detection can suggest values, but must show evidence and ask when confidence is insufficient.
-5. Automation is read-only by default. It may create a proposed fix on an isolated branch when the change is bounded and reversible. It must not push directly to a protected branch, alter production data, change access/security policy, publish, or deploy without the required human approval.
-6. Every finding links to evidence, severity, user/business impact, suggested next action, and whether an automatic correction is allowed.
-7. Project frameworks are versioned. Updates include compatibility notes, migration guidance, and a way to pin or adopt a version.
-8. Product and engineering quality are both in scope: problem validation, measurable outcomes, user experience, accessibility, privacy, security, reliability, test coverage, operability, and release readiness.
+The draft contains engineering principles and a few human-approval examples, but it does **not yet classify every standard as Mandatory, Recommended, or Optional**. Complete this table before calling the contract final.
 
-## 4. Standard project stages
-
-| Stage | PM question | Minimum evidence to exit | Typical checks |
+| Area | Proposed level | What it means | Human approval |
 |---|---|---|---|
-| Discovery | Is this a real user problem worth solving? | User/problem statement, evidence, target user, desired outcome, known assumptions. | Evidence quality, duplicate initiative check, risk/data questions. |
-| Definition | What outcome and scope are we committing to? | Requirements, non-goals, success metric, acceptance criteria, dependencies. | Requirement completeness, metric measurability, edge-case prompts. |
-| Design | How should the experience and system behave? | User flow, design decisions, architecture/data/API decisions where relevant. | Accessibility, privacy, security, failure states, contract review. |
-| Build | Is implementation progressing against agreed intent? | Traceable changes, updated documentation, reviewable code. | Formatting, types, tests, dependency and secret scans, changed-area checks. |
-| Verify | Does it work for the intended users and failure cases? | Test evidence, known limitations, product acceptance. | Automated tests, integration checks, exploratory checklist, accessibility checks. |
-| Release | Can we safely expose this to users and recover if needed? | Approved release notes, monitoring, rollback/mitigation plan, support readiness. | Deployment config, migration compatibility, launch checklist, human approvals. |
-| Operate | Is the product delivering the outcome after release? | Usage/quality metrics, incidents, user feedback, follow-up decisions. | Monitoring/alert review, reliability, outcome review, incident learning. |
+| Secrets and credentials | Mandatory | Never commit credentials; use approved secret storage. | Always for access or credential policy changes. |
+| Relevant automated checks | Mandatory | Run applicable checks and report evidence; unavailable checks are NOT RUN. | A human owner decides whether to accept a failed or unavailable required check. |
+| Security, privacy, and sensitive data | Mandatory | Identify sensitive-data handling and security impact; do not silently change policy. | Always for security/privacy policy decisions or sensitive-data handling changes. |
+| Tests for changed behavior | Mandatory | Add or update checks that demonstrate the intended behavior. | Human approval for accepting known material gaps. |
+| Reliability and recovery planning | Recommended by default; mandatory for production or high-impact services | Record likely failure modes, monitoring, and recovery approach. | Always before production release when recovery is not demonstrated or risk is high. |
+| Formatting, typing, and maintainability checks | Recommended by default; mandatory where the project already enforces them | Use the project’s established checks and conventions. | No special approval unless the exception weakens a mandatory control. |
+| Architecture or dependency choices | Recommended review | Explain trade-offs and affected systems before broad changes. | Always for broad-impact upgrades or changes that materially alter system boundaries. |
 
-A project may skip a stage only with a recorded reason and owner. The workflow should not infer project maturity from a branch name or folder alone.
+These are starting recommendations for Ankit to confirm or change. “Mandatory” means a project must meet the rule or record an approved exception. “Recommended” means the AI should suggest it and explain when it matters. “Optional” means it is available when useful and does not block progress.
 
-## 5. Guided project intake
+## Human approval is always required for
 
-The intake should ask in plain language: (1) Who has the problem? (2) What are they trying to do? (3) What evidence shows the problem matters? (4) What should improve and how will we measure it? (5) What is explicitly out of scope? (6) Does the project handle personal, financial, health, or otherwise sensitive information? (7) What platforms and external services are involved? (8) What environments and release process exist? (9) Who owns product, technical, security/privacy, and release decisions? (10) What constraints or deadlines are real?
+- Security or privacy policy changes, access-control changes, or changes to how sensitive data is handled.
+- Legal or regulatory conclusions.
+- Production data writes, deletion, or irreversible database changes.
+- Production deployment, publishing, or release decisions.
+- Accepting a material security, privacy, reliability, or required-check failure.
+- Broad-impact dependency upgrades or architecture changes.
+- Any action that spends money, changes user access, or cannot be safely reversed.
 
-If a PM cannot answer a technical question, the assistant should inspect the repository or offer simple choices with explanations. It should not require the PM to guess a framework, database, or deployment design.
+The AI may prepare a proposal and evidence, but must wait for the named human decision owner before taking these actions.
 
-## 6. Project manifest (proposed)
+## Engineering stages and evidence
 
-Each project should carry a validated manifest such as .apverse/project.yml with: framework version, project name, product owner, technical owner (if available), current stage, declared stack, environments, risk/data classification, enabled checks, protected branch, and project-specific exceptions with approver and expiry. The manifest is the machine-readable source for check selection; human-readable project docs remain the source for intent and decisions.
+| Stage | Minimum engineering evidence to move on |
+|---|---|
+| Project setup | Project purpose reference, technical owner if known, stack and environments discovered or confirmed, data/risk classification, checks selected. |
+| Design | Relevant architecture, API, storage, security, and failure-mode decisions recorded; unknowns called out. |
+| Build | Changes are reviewable, tied to agreed acceptance criteria, and follow repository conventions. |
+| Verify | Applicable tests and quality checks have recorded results; failures and NOT RUN checks are visible. |
+| Release | Deployment steps, monitoring, data migration impact, rollback or recovery approach, and required human approvals are recorded. |
+| Operate | Reliability signals, incidents, and technical follow-up work are reviewed and assigned. |
 
-## 7. Finding and remediation contract
+A project may skip a stage only with a recorded reason and an owner. Stage detection must show evidence; it must not rely on a branch name alone.
 
-Each result should include: check ID and version; status (PASS, FAIL, NEEDS HUMAN REVIEW, or NOT RUN); evidence and inspected scope; severity; affected user/business outcome; recommended next step; whether a fix may be proposed automatically; and required approver. Unknown or unavailable checks must be NOT RUN, never PASS.
+## Project setup record
 
-Automated corrections should be limited to narrow, reversible changes with a clear test or validation path. The system should prepare a branch/PR, describe the diff and evidence, run applicable checks, and wait for review. Security/privacy policy, legal conclusions, schema/data deletion, dependency upgrades with broad impact, access changes, production writes, and releases require human decision.
+Each project should have a small machine-readable record, proposed at `.apverse/project.yml`, containing the contract version, project name, current engineering stage, detected/confirmed stack, environments, risk/data classification, enabled checks, protected branch, and approved exceptions with approver and expiry. The AI should inspect the repository and offer simple choices when a PM does not know a technical answer.
 
-## 8. Definition of done for a project change
+## Findings and safe fixes
 
-A change is ready for review when it maps to an agreed product need, acceptance criteria are addressable, relevant checks ran with recorded results, failures are fixed or explicitly accepted by the right owner, documentation reflects material behavior/architecture changes, and the change is reviewable. A release has a separate gate for production readiness and human approval.
+Every check result should include its name and version, status (**PASS**, **FAIL**, **NEEDS HUMAN REVIEW**, or **NOT RUN**), evidence, scope inspected, severity, user or business impact, next step, and whether a fix can be proposed automatically.
 
-## 9. Phase 1 success criteria
+Automation is read-only by default. It may offer a narrow, reversible fix on a separate branch or pull request when it can validate the change. It must not push directly to a protected branch or perform a human-gated action. Each proposal should explain the change and show check results.
 
-- A non-technical PM can start a sample project from the guided intake without technical coaching.
-- The assistant explains what it inspected and what it still needs in plain English.
-- The project manifest validates and reports missing/invalid fields clearly.
-- A project can identify its stage and applicable checks with evidence, while allowing the PM to correct an uncertain suggestion.
-- The workflow produces no false PASS for a check that was unavailable or not run.
-- High-impact changes are held for an explicit human approval.
-- Tool-specific instructions point to one versioned canonical contract rather than drifting copies.
+## How this applies across APVerse
 
-## Draft review questions
+The target policy applies to **all APVerse projects**, including Foofoo and Parent Plus. Adoption should be staged: first validate the workflow with representative lower-risk and higher-risk projects, then fix gaps and roll it out across the remaining projects. Pilot projects are a way to learn before broad enforcement; they are not an exemption from the eventual organization standard.
 
-1. Confirm that self-serve means no ongoing technical coaching, while allowing one-time organization administrator setup.
-2. Confirm mandatory versus recommended standards and which risks always require human approval.
-3. Choose one simple and one higher-risk pilot project.
-4. Define APVerse policy owner and review cadence.
-5. Provide the missing purpose number 4 from the original goals.
+The pilot project names and their risk categories still need to be recorded. Do not assume which project is lower or higher risk without reviewing what data it handles, who uses it, and the impact of failure.
 
-## Draft note
+## Ownership and upkeep
 
-This is a proposed organization contract for review. It does not yet change project repositories or enforce checks.
+Ankit owns this policy. Review it weekly. Each review should capture changes, rationale, effective date, and any migration guidance. Projects may pin a contract version; exceptions need an owner, reason, approver, and expiry date.
+
+## Co-founder decisions still needed
+
+1. **Self-serve definition:** Confirm that “self-serve” means no ongoing technical coaching, while allowing one-time organization administrator setup.
+2. **Standards:** Confirm or edit the proposed Mandatory/Recommended levels in the table above; mark any Optional checks and name exceptions that need human approval.
+3. **Rollout:** Confirm the lower-risk and higher-risk pilot projects. Foofoo and Parent Plus are both in the all-project target scope.
+4. **Engineering scope:** Confirm that product discovery and general product documentation stay in separate policies, while engineering documentation stays here.
+5. **Purpose #4:** The original goals listed only three completed purposes and left item four blank. The working interpretation added here is: **establish consistent engineering quality standards and safe automation across every APVerse project.**
+
+## Status and limits
+
+This is a proposed engineering policy, not an enforcement system. It does not yet change Foofoo or Parent Plus, add automated checks, or approve exceptions. Those steps follow after the policy decisions are confirmed.
